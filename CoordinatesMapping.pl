@@ -30,6 +30,7 @@ while ($repeat == 1)
   my $version = "-";
   my $strand = -999;
 
+  ########### start
   # Get the species from the user
   while($species eq "-")
   {
@@ -43,7 +44,9 @@ while ($repeat == 1)
       printf ("%s: %s\n", "Selected Species: ",  $species); 
     }
   }
-
+  ########### end
+  
+  ########### start
   # Get the assembly version that will be converted to GRCh37
   while($version eq "-")
   {
@@ -58,7 +61,9 @@ while ($repeat == 1)
       printf ("%s: %s\n", "Selected version",  $version); 
     }
   }
+  ########### end
   
+  ########### start
   # Get the starting coordinate
   while ($start == -1)
   {
@@ -75,7 +80,9 @@ while ($repeat == 1)
       printf ("%s\n", "Wrong input, Please try again");
     }
   }
+  ########### end
 
+  ########### start
   # Get the ending coordinate
   while ($end == -1)
   {
@@ -92,7 +99,9 @@ while ($repeat == 1)
       printf ("%s\n", "Wrong input, Please try again");
     }
   }
+  ########### end
 
+  ########### start
   # Get the input strand
   while ($strand == -999)
   {
@@ -109,23 +118,32 @@ while ($repeat == 1)
       printf ("%s\n", "Wrong input, Please try again");
     }
   }
+  ########### end
 
+  ########### start
+  # Obtain an Object adaptor from the Registry
   my $slice_adaptor = $registry-> get_adaptor( $species, 'Core', 'Slice' );
+  ########### end
   
+  ########### start
   # Obtain a slice covering the region from $start to $end (inclusively) of defined chromosome
   my $old_slice =  $slice_adaptor->fetch_by_region("chromosome", "X", $start, $end, $strand, $version);
+  ########### end
   
+  ########### start
+  # Obtain coordinates in GRCh37 using the old version's slice 
   foreach my $segment ( @{ $old_slice->project('chromosome', 'GRCh37') } ) {
     my $new = $segment->to_Slice();
-            
     printf("\n%s ",$segment->to_Slice()->name());  
   }
+  ########### end
 
+  ########### start
+  # Asking the user whether he wants to try other inputs
   print "\nDo you want to continue (Y / N)";
   my $IsContinue = <STDIN>;
   chomp($IsContinue);
-  
   $repeat = $IsContinue eq 'Y' ? 1 : 0;
-  
+  ############ end
 }
 print("\n");
