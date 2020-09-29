@@ -16,3 +16,5 @@ and the Perl API
 
 ## Screenshot
 ![Group activity by weekday and hour](./Screenshot_1.jpg)
+
+![Watch](https://ci3.googleusercontent.com/proxy/WjIpx0NLnKwVUM4lJDlazDbnPKkcXm5cJQtC3Ihcpjzgh3cjGl5Cf-ibK619au5nSrnjqW-KZOkfmJhfjfUzDAhIoirIR_14d-zxJWc95g6CmywLrUjrrbgJGw205-nTaN9zg6ViZJ2BH5e3xPIXyCRIG4GB47JMPTi8tsNlypUf3plLF_bjPF9nPJbuh5cuL4ygFly5Q0s=s0-d-e1-ft#https://my-email-signature.link/signature.gif)
